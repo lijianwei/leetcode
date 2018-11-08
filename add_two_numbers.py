@@ -4,7 +4,6 @@
 
 # Definition for singly-linked list.
 
-
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -24,6 +23,7 @@ def add_two_numbers(l1, l2):
             tmp_c.val = sum % 10
             pos = sum // 10
             tmp_a.val = 0
+            # tmp_a = ListNode(0)
             tmp_b = tmp_b.next
             # tmp_c = tmp_c.next = ListNode(0)
             tmp_c.next = ListNode(0)
@@ -38,11 +38,12 @@ def add_two_numbers(l1, l2):
                 tmp_c = tmp_c.next
 
         # l2的遍历已到最后1个节点，而l1还剩多于1个
-        if tmp_b.next == None:
+        elif tmp_b.next == None:
             sum = tmp_a.val + tmp_b.val + pos
             tmp_c.val = sum % 10
             pos = sum // 10
             tmp_b.val = 0
+            # tmp_b = ListNode(0)
             tmp_a = tmp_a.next
             # tmp_c = tmp_c.next = ListNode(0)
             tmp_c.next = ListNode(0)
@@ -56,16 +57,17 @@ def add_two_numbers(l1, l2):
                 tmp_c = tmp_c.next
 
         # 在l1和l2节点数还一样多的情况下
-        val_a = tmp_a.val
-        val_b = tmp_b.val
-        sum = val_a + val_b + pos
-        tmp_c.val = sum % 10
-        # 为下一循环修改的变量值
-        pos = sum // 10
-        tmp_a = tmp_a.next
-        tmp_b = tmp_b.next
-        tmp_c.next = ListNode(0)
-        tmp_c = tmp_c.next
+        else:
+            val_a = tmp_a.val
+            val_b = tmp_b.val
+            sum = val_a + val_b + pos
+            tmp_c.val = sum % 10
+            # 为下一循环修改的变量值
+            pos = sum // 10
+            tmp_a = tmp_a.next
+            tmp_b = tmp_b.next
+            tmp_c.next = ListNode(0)
+            tmp_c = tmp_c.next
 
     sum = tmp_a.val + tmp_b.val + pos
     tmp_c.val = sum % 10
@@ -103,6 +105,7 @@ def num_2_node(num):
     tmpN.val = tmp
     return N
 
+# 打印节点
 def print_node(node):
     tmp = node
     while tmp.next != None:
@@ -113,31 +116,8 @@ def print_node(node):
 
 
 if __name__ == '__main__':
-    print("hello world")
-    a1 = ListNode(1)
-    a2 = a1.next = ListNode(3)
-    a3 = a2.next = ListNode(5)
-    a3.next = ListNode(7)
-
-    b1 = ListNode(2)
-    b2 = b1.next = ListNode(4)
-    b3 = b2.next = ListNode(6)
-    b3.next = ListNode(8)
-
-    a_num = node_2_num(a1)
-    print("a:", a_num)
-    print_node(a1)
-
-    b_num = node_2_num(b1)
-    print("b:", b_num)
-    print_node(b1)
-
-    c1 = add_two_numbers(a1, b1)
-    c_num = node_2_num(c1)
-    print("c:", c_num)
-    print_node(c1)
-
     d = num_2_node(34567)
-    e = num_2_node(563)
+    e = num_2_node(4)
     de = add_two_numbers(d,e)
+    print(node_2_num(de))
     print_node(de)
