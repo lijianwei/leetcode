@@ -25,13 +25,17 @@ def add_two_numbers(l1, l2):
             pos = sum // 10
             tmp_a.val = 0
             tmp_b = tmp_b.next
-            tmp_c = tmp_c.next = ListNode(0)
+            # tmp_c = tmp_c.next = ListNode(0)
+            tmp_c.next = ListNode(0)
+            tmp_c = tmp_c.next
             while tmp_b.next != None:
                 sum = tmp_b.val + pos
                 pos = sum // 10
                 tmp_c.val = sum % 10
                 tmp_b = tmp_b.next
-                tmp_c = tmp_c.next = ListNode(0)
+                # tmp_c = tmp_c.next = ListNode(0)
+                tmp_c.next = ListNode(0)
+                tmp_c = tmp_c.next
 
         # l2的遍历已到最后1个节点，而l1还剩多于1个
         if tmp_b.next == None:
@@ -40,13 +44,16 @@ def add_two_numbers(l1, l2):
             pos = sum // 10
             tmp_b.val = 0
             tmp_a = tmp_a.next
-            tmp_c = tmp_c.next = ListNode(0)
+            # tmp_c = tmp_c.next = ListNode(0)
+            tmp_c.next = ListNode(0)
+            tmp_c = tmp_c.next
             while tmp_a.next != None:
                 sum = tmp_a.val + pos
                 pos = sum // 10
                 tmp_c.val = sum % 10
                 tmp_a = tmp_a.next
-                tmp_c = tmp_c.next = ListNode(0)
+                tmp_c.next = ListNode(0)
+                tmp_c = tmp_c.next
 
         # 在l1和l2节点数还一样多的情况下
         val_a = tmp_a.val
@@ -57,7 +64,8 @@ def add_two_numbers(l1, l2):
         pos = sum // 10
         tmp_a = tmp_a.next
         tmp_b = tmp_b.next
-        tmp_c = tmp_c.next = ListNode(0)
+        tmp_c.next = ListNode(0)
+        tmp_c = tmp_c.next
 
     sum = tmp_a.val + tmp_b.val + pos
     tmp_c.val = sum % 10
@@ -87,8 +95,7 @@ def print_node(node):
         print(tmp.val)
         tmp = tmp.next
     print(tmp.val)
-    print("------------------------------------")
-
+    print("----------------  over  -----------------")
 
 
 if __name__ == '__main__':
