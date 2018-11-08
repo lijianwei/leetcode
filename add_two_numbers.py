@@ -76,7 +76,8 @@ def add_two_numbers(l1, l2):
 
     return l3
 
-
+# 节点到整数
+# return::int
 def node_2_num(node):
     tmp = node
     sum = 0
@@ -88,6 +89,19 @@ def node_2_num(node):
     sum = sum + tmp.val * pos
     return sum
 
+# 整数到节点
+# return::ListNode()
+def num_2_node(num):
+    tmp = num
+    tmpN = N = ListNode(0)
+    while tmp // 10 != 0 :
+        val = tmp % 10
+        tmp = tmp // 10
+        tmpN.val = val
+        tmpN.next = ListNode(0)
+        tmpN = tmpN.next
+    tmpN.val = tmp
+    return N
 
 def print_node(node):
     tmp = node
@@ -122,3 +136,8 @@ if __name__ == '__main__':
     c_num = node_2_num(c1)
     print("c:", c_num)
     print_node(c1)
+
+    d = num_2_node(34567)
+    e = num_2_node(563)
+    de = add_two_numbers(d,e)
+    print_node(de)
