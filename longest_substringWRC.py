@@ -7,7 +7,7 @@ class Solution:
         len_s = len(s)
         P = 0
         max = 0
-        while P < (len_s - 1):
+        while P < len_s :
             tmp = P
             ua = set()  # 利用set 无序 不重复数据结构
             while tmp < len_s:
