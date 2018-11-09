@@ -6,7 +6,7 @@ class Solution:
         """
         len_s = len(s)
         P = 0
-        max = 1
+        max = 0
         while P < (len_s - 1):
             tmp = P
             ua = set()  # 利用set 无序 不重复数据结构
@@ -27,5 +27,5 @@ class Solution:
 
 if __name__ == '__main__':
     S = Solution()
-    max = S.lengthOfLongestSubstring("helloworld")
+    max = S.lengthOfLongestSubstring("")
     print(max)
