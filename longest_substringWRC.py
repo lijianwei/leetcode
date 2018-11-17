@@ -40,24 +40,14 @@ def hash_func(s):
             else :
                 D[s[Tp]] = Tp
                 tmp_max = Tp - Hp + 1
-                # max = bigger(max, tmp_max)
-                if max >= tmp_max :
-                    pass
-                else :
-                    max = tmp_max
-                    res_h_t = [Hp, Tp]
+                max = bigger(max, tmp_max)
                 Tp = Tp + 1
         else:
             D[s[Tp]] = Tp   # 把新字母加入字典中
             tmp_max = Tp - Hp + 1
-            # max = bigger(max, tmp_max)
-            if max >= tmp_max :
-                pass
-            else :
-                max = tmp_max
-                res_h_t = [Hp, Tp]
+            max = bigger(max, tmp_max)
             Tp = Tp + 1
-    return [max, res_h_t]
+    return max
 
 
 def bigger(a,b) :
