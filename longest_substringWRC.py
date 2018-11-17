@@ -57,6 +57,21 @@ def bigger(a,b) :
         return b
 
 
+def feibo(n) :
+    if n == 1 or n == 2 :
+        return 1
+    else :
+        return feibo_(1,1,n)
+
+
+def feibo_(a,b,n):
+    if n < 3 :
+        return b
+    else :
+        return feibo_(b,a+b,n-1)   # python的递归函数还是得加上return 和erlang区别
+
+
 if __name__ == '__main__':
-    max = hash_func("abcdefghisdflkajoesdfa")
+    max = feibo(11)
     print(max)
+
