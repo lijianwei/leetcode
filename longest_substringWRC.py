@@ -27,8 +27,8 @@ class Solution:
 
 
 def hash_func(s):
-    Hp = 0
-    Tp = 0
+    Hp = 0  # 头指针
+    Tp = 0  # 尾指针
     max = 0
     D = dict()
 
