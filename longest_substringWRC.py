@@ -25,7 +25,48 @@ class Solution:
             P = P + 1
         return max
 
+
+def hash_func(s):
+    Hp = 0
+    Tp = 0
+    max = 0
+    D = dict()
+
+    while Tp < len(s) :
+        if s[Tp] in D :
+            TmpIndex = D[s[Tp]]
+            if TmpIndex >= Hp :
+                Hp = TmpIndex + 1
+            else :
+                D[s[Tp]] = Tp
+                tmp_max = Tp - Hp + 1
+                # max = bigger(max, tmp_max)
+                if max >= tmp_max :
+                    pass
+                else :
+                    max = tmp_max
+                    res_h_t = [Hp, Tp]
+                Tp = Tp + 1
+        else:
+            D[s[Tp]] = Tp   # 把新字母加入字典中
+            tmp_max = Tp - Hp + 1
+            # max = bigger(max, tmp_max)
+            if max >= tmp_max :
+                pass
+            else :
+                max = tmp_max
+                res_h_t = [Hp, Tp]
+            Tp = Tp + 1
+    return [max, res_h_t]
+
+
+def bigger(a,b) :
+    if a >= b :
+        return a
+    else :
+        return b
+
+
 if __name__ == '__main__':
-    S = Solution()
-    max = S.lengthOfLongestSubstring("")
+    max = hash_func("abcdefghisdflkajoesdfa")
     print(max)
